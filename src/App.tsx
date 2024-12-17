@@ -22,7 +22,8 @@ function App() {
   }
   return (
     <>
-      <Table.Root size="sm">
+      <h1 data-testid="title">TODOリスト</h1>
+      <Table.Root size="sm" data-testid="table">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeader>Title</Table.ColumnHeader>
