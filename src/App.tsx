@@ -5,16 +5,21 @@ import { Todo } from "@/domain/todo"
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getAllTodos = async () => {
       const todoData =  await GetAllTodos();
       setTodos(todoData);
+      setIsLoading(false);
     }
 
     getAllTodos();
   }, [])
 
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
   return (
     <>
       <Table.Root size="sm">
